@@ -1,0 +1,155 @@
+body {
+  background: #F5F5F0;
+  color: black;
+  font-family: Monaco;
+  overflow-x: hidden;
+  background-image: url('../_static/background_image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.list-movies-title {
+  padding: 10px 0;
+  background: linear-gradient(to bottom, #0077A1, #009B50);
+  color: black;
+  text-align: center;
+  font-size: 24pt;
+  font-style: italic;
+  transition: background 0.3s ease;
+  border-radius: 15px;
+  position: relative;
+}
+
+.list-movies-title:hover {
+  background: linear-gradient(to bottom, #009B50, #0077A1);
+  color: red;
+}
+
+.list-movies-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.list-movies-title:hover:after {
+  width: 100%;
+}
+
+.movie-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-grid li {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.movie {
+  position: relative;
+  max-width: 140px;
+  margin: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 35px;
+}
+
+.movie-title,
+.movie-year {
+  font-size: 0.8em;
+  margin: 5px 0 0 0;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.movie-year {
+  font-weight: bold;
+  color: rgb(88, 0, 0);
+}
+
+
+.movie-poster {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 192px;
+  height: 290px;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 10px;
+  position: relative;
+}
+
+.movie-poster:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.movie-poster:hover:before {
+  opacity: 1;
+}
+
+
+.movie-flag {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 20px;
+  margin-top: 45px;
+}
+}
+
+.movie-flag img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .movie-flag {
+    top: -20px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .movie-flag {
+    top: -30px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .movie-flag {
+    top: -40px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .movie-flag {
+    top: -50px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .movie-flag {
+    top: -60px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .movie-flag {
+    top: -70px;
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "Batman Begins": {
+        "rating": 8.2,
+        "year": 2005,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+        "id": "tt0372784",
+        "country": "United States, United Kingdom"
+    },
+    "Scream": {
+        "rating": 7.4,
+        "year": 1996,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjA2NjU5MTg5OF5BMl5BanBnXkFtZTgwOTkyMzQxMDE@._V1_SX300.jpg",
+        "id": "tt0117571",
+        "country": "United States",
+        "comment": "Best movie ever"
+    },
+    "Scream 2": {
+        "rating": 6.3,
+        "year": 1997,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTIxNTMzNzYtNzA3NC00MzgwLTlhNGYtMDEyYTNlZjcwZTNiXkEyXkFqcGdeQXVyNDAxNjkxNjQ@._V1_SX300.jpg",
+        "id": "tt0120082",
+        "country": "United States"
+    },
+    "Pulp Fiction": {
+        "rating": 8.9,
+        "year": 1994,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+        "id": "tt0110912",
+        "country": "United States"
+    },
+    "Joker": {
+        "rating": 8.4,
+        "year": 2019,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "id": "tt7286456",
+        "country": "United States, Canada"
+    }
+}

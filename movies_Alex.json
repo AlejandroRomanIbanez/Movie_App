@@ -1,0 +1,37 @@
+{
+    "Scream": {
+        "rating": 7.4,
+        "year": 1996,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjA2NjU5MTg5OF5BMl5BanBnXkFtZTgwOTkyMzQxMDE@._V1_SX300.jpg",
+        "id": "tt0117571",
+        "country": "United States"
+    },
+    "Joker": {
+        "rating": 8.4,
+        "year": 2019,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "id": "tt7286456",
+        "country": "United States, Canada"
+    },
+    "Pulp Fiction": {
+        "rating": 8.9,
+        "year": 1994,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+        "id": "tt0110912",
+        "country": "United States"
+    },
+    "Dune": {
+        "rating": 8.0,
+        "year": 2021,
+        "poster": "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "id": "tt1160419",
+        "country": "United States, Canada"
+    },
+    "Warcraft": {
+        "rating": 6.7,
+        "year": 2016,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjIwNTM0Mzc5MV5BMl5BanBnXkFtZTgwMDk5NDU1ODE@._V1_SX300.jpg",
+        "id": "tt0803096",
+        "country": "United States, China, Canada, Japan"
+    }
+}
