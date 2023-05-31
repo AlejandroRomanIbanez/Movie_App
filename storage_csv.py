@@ -5,10 +5,12 @@ import requests
 from helpers import input_color, user_choice_color, error_color, return_to_menu
 from istorage import IStorage
 
+
 class StorageCsv(IStorage):
     """
     CSV storage implementation for storing movie data.
     """
+
     def __init__(self, file_path):
         """
         Initialize the StorageCsv instance.
@@ -22,8 +24,8 @@ class StorageCsv(IStorage):
         except FileNotFoundError:
             with open(self.file_path, "w") as handle:
                 writer = csv.writer(handle)
-                writer.writerow(["title", "year", "rating", "id", "country", "comment", "poster"])
-    
+                writer.writerow(["title", "rating", "year", "id", "country", "comment", "poster"])
+
     def list_movies(self):
         """
         Retrieve the list of movies from the CSV file.
@@ -59,7 +61,7 @@ class StorageCsv(IStorage):
                 imdb_id = movie_info['imdbID']
                 country = movie_info['Country']
                 poster = movie_info['Poster']
-                
+
                 country_list = country.split(", ")
                 if "United States" in country_list:
                     country_list.remove("United States")
@@ -68,7 +70,7 @@ class StorageCsv(IStorage):
                 with open(self.file_path, "r", newline='') as handle:
                     reader = csv.reader(handle)
                     for row in reader:
-                        if row[:5] == [title, int(year), float(rating), imdb_id, modified_country]:
+                        if row[:5] == [title, float(rating), int(year), imdb_id, modified_country]:
                             print(error_color("This movie already exists in the list."))
                             return return_to_menu()
                 with open(self.file_path, "a", newline='') as handle:
@@ -82,63 +84,63 @@ class StorageCsv(IStorage):
             return_to_menu()
 
     def delete_movie(self):
-            """
-            Deletes a movie from the CSV file.
-            """
-            delete_movie_choice = input(
-                input_color("Enter the name of the movie you want to delete: "))
+        """
+        Deletes a movie from the CSV file.
+        """
+        delete_movie_choice = input(
+            input_color("Enter the name of the movie you want to delete: "))
 
-            temp_file_path = self.file_path + ".tmp"
-            fieldnames = ['title', 'rating', 'year', 'id', 'country', 'comment', 'poster']
+        temp_file_path = self.file_path + ".tmp"
+        fieldnames = ['title', 'rating', 'year', 'id', 'country', 'comment', 'poster']
 
-            with open(self.file_path, "r") as handle, open(temp_file_path, "w", newline="") as temp_handle:
-                reader = csv.DictReader(handle)
-                writer = csv.DictWriter(temp_handle, fieldnames=fieldnames)
+        with open(self.file_path, "r") as handle, open(temp_file_path, "w", newline="") as temp_handle:
+            reader = csv.DictReader(handle)
+            writer = csv.DictWriter(temp_handle, fieldnames=fieldnames)
 
-                writer.writeheader()
-                for row in reader:
-                    movie_title = row['title']
-                    if movie_title != delete_movie_choice:
-                        writer.writerow(row)
+            writer.writeheader()
+            for row in reader:
+                movie_title = row['title']
+                if movie_title != delete_movie_choice:
+                    writer.writerow(row)
 
-            os.remove(self.file_path)
-            os.rename(temp_file_path, self.file_path)
+        os.remove(self.file_path)
+        os.rename(temp_file_path, self.file_path)
 
-            print(f"{user_choice_color(delete_movie_choice)} has been deleted.")
-            return_to_menu()
+        print(f"{user_choice_color(delete_movie_choice)} has been deleted.")
+        return_to_menu()
 
     def update_movie(self):
-            """
-            Update a movie in the CSV file.
-            """
-            update_movie_choice = input(input_color("Enter the name of the movie to update: ")).title()
-            update_comment = input(input_color("Enter the updated comment: "))
+        """
+        Update a movie in the CSV file.
+        """
+        update_movie_choice = input(input_color("Enter the name of the movie to update: ")).title()
+        update_comment = input(input_color("Enter the updated comment: "))
 
-            updated = False
-            movies = []
-            with open(self.file_path, "r") as handle:
-                reader = csv.DictReader(handle)
-                for row in reader:
-                    movies.append(row)
+        updated = False
+        movies = []
+        with open(self.file_path, "r") as handle:
+            reader = csv.DictReader(handle)
+            for row in reader:
+                movies.append(row)
 
-            for movie in movies:
-                if movie["title"] == update_movie_choice:
-                    movie["comment"] = update_comment
-                    updated = True
-                    break
+        for movie in movies:
+            if movie["title"] == update_movie_choice:
+                movie["comment"] = update_comment
+                updated = True
+                break
 
-            if updated:
-                with open(self.file_path, "w", newline='') as handle:
-                    fieldnames = ["title", "year", "rating", "id", "country", "comment", "poster"]
-                    writer = csv.DictWriter(handle, fieldnames=fieldnames)
-                    writer.writeheader()
-                    writer.writerows(movies)
+        if updated:
+            with open(self.file_path, "w", newline='') as handle:
+                fieldnames = ['title', 'rating', 'year', 'id', 'country', 'comment', 'poster']
+                writer = csv.DictWriter(handle, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(movies)
 
-                print(f"Movie {user_choice_color(update_movie_choice)} successfully updated")
-            else:
-                print(error_color(f"Movie {update_movie_choice} not found in the list"))
+            print(f"Movie {user_choice_color(update_movie_choice)} successfully updated")
+        else:
+            print(error_color(f"Movie {update_movie_choice} not found in the list"))
 
-            return_to_menu()
+        return_to_menu()
 
     def get_country_id_flag(self, movie_title):
         """
@@ -149,12 +151,12 @@ class StorageCsv(IStorage):
         str: The country ID flag.
         """
         with open(self.file_path, "r") as csv_file:
-                reader = csv.DictReader(csv_file)
-                for row in reader:
-                    if row["title"] == movie_title:
-                        country = row["country"]
-                        with open("countries.json", "r") as countries_file:
-                            countries_data = json.load(countries_file)
-                            country_dict = {val: key for key, val in countries_data.items()}
-                            if country in country_dict:
-                                return country_dict[country]
+            reader = csv.DictReader(csv_file)
+            for row in reader:
+                if row["title"] == movie_title:
+                    country = row["country"]
+                    with open("countries.json", "r") as countries_file:
+                        countries_data = json.load(countries_file)
+                        country_dict = {val: key for key, val in countries_data.items()}
+                        if country in country_dict:
+                            return country_dict[country]
