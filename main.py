@@ -1,3 +1,4 @@
+import argparse
 from movie_app import MovieApp
 from storage_json import StorageJson
 from storage_csv import StorageCsv
@@ -5,19 +6,27 @@ from storage_csv import StorageCsv
 
 def main():
     """
-    Entry point of the movie app program.
-    This function creates an instance of the `StorageJson` class to handle movie storage,
-    and an instance of the `MovieApp` class to interact with the user and manage the movie app.
-    It then calls the `run()` method on the `MovieApp` instance to start the movie app program.
-    The movie storage is based on a JSON file specified by the file path.
-    Usage:
-    The `main()` function is typically called when executing the movie app script directly.
-    It serves as the starting point of the movie app program.
+    Entry point of the Movie App program.
+    Parses the command-line arguments to determine the movie data file,
+    initializes the appropriate storage object based on the file extension,
+    creates an instance of the MovieApp class with the storage object,
+    and runs the main loop of the Movie App.
     """
-    storage = StorageCsv('movies_Alex2.csv')
-    storage2 = StorageJson('movies_Alex.json')
+    parser = argparse.ArgumentParser(description="Movie App")
+    parser.add_argument('filename', help='Path to the movie data file(json or csv)')
+
+    args = parser.parse_args()
+    filename = args.filename
+
+    if filename.endswith('.csv'):
+        storage = StorageCsv(filename)
+    elif filename.endswith('.json'):
+        storage = StorageJson(filename)
+    else:
+        print("The argument is invalid, use .json or .csv example: john.json")
     movie_app = MovieApp(storage)
     movie_app.run()
 
+
 if __name__ == "__main__":
-  main()
+    main()
